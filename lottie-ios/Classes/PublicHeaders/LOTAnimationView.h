@@ -52,6 +52,8 @@ typedef void (^LOTAnimationCompletionBlock)(BOOL animationFinished);
 /// Load animation from a JSON dictionary from a specific bundle
 - (void)setAnimationFromJSON:(nonnull NSDictionary *)animationJSON inBundle:(nullable NSBundle *)bundle NS_SWIFT_NAME(setAnimation(json:bundle:));
 
+- (BOOL)updateAnimationWithContentOfFile:(nonnull NSString *)filePath;
+
 /// Flag is YES when the animation is playing
 @property (nonatomic, readonly) BOOL isAnimationPlaying;
 

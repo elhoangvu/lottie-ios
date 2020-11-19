@@ -310,6 +310,24 @@ static NSString * const kCompContainerAnimationKey = @"play";
   [self _setupWithSceneModel:comp];
 }
 
+- (BOOL)updateAnimationWithContentOfFile:(NSString *)filePath {
+    if (filePath.length == 0) {
+        NSAssert(NO, @"`filePath` must not be nil.");
+        return NO;
+    }
+    
+    LOTComposition *comp = [LOTComposition animationWithFilePath:filePath];
+    
+    if (!comp) {
+        return NO;
+    }
+    
+    [self _initializeAnimationContainer];
+    [self _setupWithSceneModel:comp];
+    
+    return YES;
+}
+
 # pragma mark - External Methods - Model
 
 - (void)setSceneModel:(LOTComposition *)sceneModel {
